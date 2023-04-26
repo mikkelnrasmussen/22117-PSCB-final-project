@@ -31,3 +31,6 @@ cp /home/projects/22117_proteins/lecture4_exercise/group0/mutatex_templates/muta
 
 # Run mutateX using the list of mutations:
 nohup mutatex high_confidence_AF-p12931.pdb -p 3 -m mutation_list.txt -x /home/ctools/foldx-5.2023/foldx -f suite5 -R repair_runfile_template.txt -M mutate_runfile_template.txt -q poslist.txt -c -L -l -v & 
+
+# Extract results from the mutateX output:
+/home/ctools/anaconda3_2021.11/bin/ddg2excel -p high_confidence_AF-p12931.pdb -l mutation_list.txt -q poslist.txt -d results/mutation_ddgs/final_averages/ -F csv
