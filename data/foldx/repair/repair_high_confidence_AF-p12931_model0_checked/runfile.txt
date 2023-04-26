@@ -1,0 +1,6 @@
+command=RepairPDB
+pdb=high_confidence_AF-p12931_model0_checked.pdb
+
+temperature=298
+water=-CRYSTAL
+complexWithDNA=true
