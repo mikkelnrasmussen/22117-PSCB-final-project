@@ -10,3 +10,7 @@ df <- read.table(
     header = TRUE
     )
 df %>% view()
+
+# Read the csv file with the results from the mutational scan from mutateX
+df2 <- read_csv(here("data/foldx/energies.csv"))
+df2 %>% t() %>% view()
