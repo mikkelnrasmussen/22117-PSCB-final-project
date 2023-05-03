@@ -17,19 +17,19 @@ for ((i=0; i<=num_models; i++)); do
     output_file="${model_prefix}${i}_with_MG${model_suffix}"
 
     # Align the current model to the original structure with the Mg cofactor
-    pymol -c-q <<EOF
+    pymol -c -q <<EOF
         load $base_struct, base_struct
-        load $model_file, model
-        align model, base_struct
-        save $model_file, model
+        load $model_file, model_${i}
+        align model_${i}, base_struct
+        save $model_file, model_${i}
 EOF
 
     # Add the Mg cofactor to the aligned model
-    pymol -c-q <<EOF
+    pymol -c -q <<EOF
         load $base_struct, base
-        load $model_file, model
+        load $model_file, model_${i}
         create mg, base and resname MG
-        create final_model, model or mg
+        create final_model, model_${i} or mg
         save $output_file, final_model
 EOF
 done
