@@ -4,7 +4,7 @@ library(here)
 
 # Read the average ddG values for each mutation and plot them
 df <- read.table(
-    here("data/foldx/Average_high_confidence_AF-p12931_Repair.fxout"),
+    here("analysis/foldx_with_cofactors/Average_AF-p12931-with-cofactors_Repair.fxout"),
     skip = 8,
     sep = "\t",
     header = TRUE

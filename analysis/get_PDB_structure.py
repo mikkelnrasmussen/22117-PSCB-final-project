@@ -126,10 +126,10 @@ def get_structure_info(name, save = True, path = "", save_as = "csv"):
     # Save the results in a csv or excel file
     if save:
         if save_as == "csv":
-            file_name = path + "EGFR_HUMAN_PDB_structure_info.csv"
+            file_name = path + name + "_PDB_structure_info.csv"
             df.to_csv(file_name, index = False)
         elif save_as == "excel":
-            file_name = path + "EGFR_HUMAN_PDB_structure_info.xlsx"
+            file_name = path + name + "_PDB_structure_info.xlsx"
             df.to_excel(file_name, index = False)
         else:
             print("The file format is not supported. Please choose between csv and excel.")
@@ -138,8 +138,8 @@ def get_structure_info(name, save = True, path = "", save_as = "csv"):
 
 
 # Call the function and save the results
-result = get_structure_info("EGFR_HUMAN", 
+result = get_structure_info("ESR1_HUMAN", 
                             save = True,
                             path = "data/",
-                            save_as = "csv")
+                            save_as = "excel")
 
