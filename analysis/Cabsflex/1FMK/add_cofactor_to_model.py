@@ -41,7 +41,7 @@ def add_cofactors(base_struct, model):
 
 
 # Define the base structure with the MG cofactor
-base_struct = "AF-P12931-with-cofactors_Repair.pdb"
+base_struct = "AF-P12931-with-cofactors.pdb"
 num_models = 10
  
 # Add cofactors to the 10 cabsflex models
