@@ -8,7 +8,11 @@ for dir in */; do
         # If a PDB file exists, change to the directory and execute the command
         echo "Running command in directory: $dir"
         cd "$dir"
-        CMD="nohup CABSflex -i high_confidence_AF*.pdb -k 10 -y 30 -a 10 -v 3 -z 10 -A --sc-rest-add 394:A 394:A 4.9 1.0 --sc-rest-add 407:A 407:A 4.9 1.0 >& log1 &"
+        CMD="nohup CABSflex -i high_confidence_AF*.pdb -k 10 -y 30 -a 10 -v 3 -z 10 -A
+         --sc-rest-add 394:A 407:A 3.8 1.0 
+         --sc-rest-add 298:A 407:A 2.7 1.0 
+         --sc-rest-add 298:A 394:A 6.2 1.0
+         >& log1 &"
         echo "$CMD"
         eval "$CMD"
         cd ..
