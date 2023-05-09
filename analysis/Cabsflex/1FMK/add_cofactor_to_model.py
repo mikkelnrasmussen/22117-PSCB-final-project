@@ -22,8 +22,14 @@ def add_cofactors(base_struct, model):
     # Copy the magnesium atom to a new object
     cmd.create("mg_only", "mg_atom")
 
-    # Combine the second structure with the magnesium atom
-    cmd.create("final_model", "cabsflex_model or mg_only")
+    # Select the ADP molecule from the first structure
+    cmd.select("adp_molecule", "base_struct and resn ADP")
+
+    # Create a new object for the ADP molecule
+    cmd.create("adp_only", "adp_molecule")
+
+    # Combine the second structure with the magnesium atom and the ADP molecule
+    cmd.create("final_model", "cabsflex_model or mg_only or adp_only")
     
     # Define the name of the output file with the added Mg cofactor
     output_pdb = f"{model_prefix}_with_MG{model_suffix}"
@@ -35,7 +41,7 @@ def add_cofactors(base_struct, model):
 
 
 # Define the base structure with the MG cofactor
-base_struct = "AF-P12931-with-cofactors_Repair.pdb"
+base_struct = "AF-P12931-with-cofactors.pdb"
 num_models = 10
  
 # Add cofactors to the 10 cabsflex models

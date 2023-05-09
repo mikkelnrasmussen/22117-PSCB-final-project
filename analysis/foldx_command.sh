@@ -29,15 +29,15 @@ cp /home/projects/22117_proteins/lecture4_exercise/group0/mutatex_templates/muta
 cp /home/projects/22117_proteins/lecture4_exercise/group0/mutatex_templates/mutatex/templates/foldxsuite5/mutate_runfile_template.txt .
 cp /home/projects/22117_proteins/lecture4_exercise/group0/mutatex_templates/mutatex/templates/mutation_list.txt .
 
-# Run mutateX using the list of mutations:
-nohup mutatex AF-P12931-with-cofactors.pdb -p 3 -m mutation_list.txt -x /home/ctools/foldx-5.2023/foldx -f suite5 -R repair_runfile_template.txt -M mutate_runfile_template.txt -q poslist.txt -c -L -l -v & 
-
 # Create poslist.txt file:
 #cat >  poslist.txt
 #RA208
 #RA391
 #AA421
 #EA527
+
+# Run mutateX using the list of mutations:
+nohup mutatex AF-P12931-with-cofactors.pdb -p 3 -m mutation_list.txt -x /home/ctools/foldx-5.2023/foldx -f suite5 -R repair_runfile_template.txt -M mutate_runfile_template.txt -q poslist.txt -c -L -l -v & 
 
 # Extract results from the mutateX output:
 /home/ctools/anaconda3_2021.11/bin/ddg2excel -p AF-P12931-with-cofactors.pdb -l mutation_list.txt -q c.txt -d results/mutation_ddgs/final_averages/ -F csv

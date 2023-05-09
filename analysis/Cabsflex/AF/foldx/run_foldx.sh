@@ -35,3 +35,7 @@ done
 
 # Move back to the initial working directory
 cd "${WORK_DIR}"
+
+  # Move back to the initial working directory
+  cd "${WORK_DIR}"
+done
