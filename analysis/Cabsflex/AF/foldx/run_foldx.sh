@@ -6,6 +6,15 @@ FOLDX_BIN=/home/ctools/foldx-5.2023/foldx
 # Set the working directory to the current directory
 WORK_DIR=/net/pupil1/home/projects/22117_proteins/projects/group14/CABSflex/AF/foldx
 
+touch mutation_list.txt
+rm mutation_list.txt
+touch mutation_list.txt
+
+echo "RA208H;" >> mutation_list.txt
+echo "RA391C;" >> mutation_list.txt
+echo "AA421V;" >> mutation_list.txt
+echo "EA527K;" >> mutation_list.txt
+
 # Loop through each subdirectory
 for dir in mut1 mut2 mut3 mut4 Shrek; do
   echo "Processing directory: ${dir}"
