@@ -16,7 +16,7 @@ echo "AA421V;" >> individual_list.txt
 echo "EA527K;" >> individual_list.txt
 
 # Loop through each subdirectory
-for dir in ESR1 FAK1 EGFR_crystal EGFR_cryo_EM; do
+for dir in ESR1 FAK1 EGFR; do
   echo "Processing directory: ${dir}"
 
   # Move to the subdirectory
@@ -26,7 +26,7 @@ for dir in ESR1 FAK1 EGFR_crystal EGFR_cryo_EM; do
   for cluster in cl0 cl1; do
     current_pdb_file="SRC_${dir}_${cluster}"
     # Run FoldX in repair mode:
-    $FOLDX_BIN --command=RepairPDB --pdb="${current_pdb_file}.pdb" --ionStrength=0.05 --pH=7 --vdwDesign=2 --out-pdb=1 --pdbHydrogens=false > "foldx_${cluster}.log" 
+    $FOLDX_BIN --command=RepairPDB --pdb="${current_pdb_file}.pdb" --ionStrength=0.05 --pH=7 --vdwDesign=2 --out-pdb=1 --pdbHydrogens=false > "foldx_${dir}_${cluster}.log" 
     # Run FoldX in build mode to introduce mutations:
     $FOLDX_BIN --command=BuildModel --pdb="${current_pdb_file}_Repair.pdb" --mutant-file="${WORK_DIR}/individual_list.txt" --ionStrength=0.05 --pH=7 --vdwDesign=2 --out-pdb=1 --pdbHydrogens=false --numberOfRuns=5
 
